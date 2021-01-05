@@ -1,0 +1,508 @@
+TEST CASES
+Timur Misirpashayev
+
+1.
+INPUT: "Call me Ishmael."
+----------------------------------------------------
+word: "Call"
+word: "me"
+word: "Ishmael"
+structure member: "."
+
+2.
+INPUT: "Was it a bar or a bat I saw?"
+----------------------------------------------------
+word: "Was"
+word: "it"
+word: "a"
+word: "bar"
+word: "or"
+word: "a"
+word: "bat"
+word: "I"
+word: "saw"
+conditional true: "?"
+
+3.
+INPUT: "34533 07777777712314122 3.222e-10"
+----------------------------------------------------
+decimal integer: "34533"
+octal integer: "07777777712314122"
+floating point: "3.222e-10"
+
+4.
+INPUT: "018923741092384.0000000321324E10 0777779"
+----------------------------------------------------
+floating point: "018923741092384.0000000321324E10"
+decimal integer: "0777779"
+
+5.
+INPUT: "0000000.0000009e+10 -123412351234 0771"
+----------------------------------------------------
+floating point: "0000000.0000009e+10"
+minus/subtract operator: "-"
+decimal integer: "123412351234"
+octal integer: "0771"
+
+6.
+INPUT: "0xfffffffffffffff 0xfffg34523 8098134 0xh"
+----------------------------------------------------
+hexadecimal integer: "0xfffffffffffffff"
+hexadecimal integer: "0xfff"
+word: "g34523"
+decimal integer: "8098134"
+octal integer: "0"
+word: "xh"
+
+7.
+INPUT: "3.999999e10 0x 0 000 0xab1256394 0xabg"
+----------------------------------------------------
+floating point: "3.999999e10"
+octal integer: "0"
+word: "x"
+octal integer: "0"
+octal integer: "000"
+hexadecimal integer: "0xab1256394"
+hexadecimal integer: "0xab"
+word: "g"
+
+8.
+INPUT: "4234523452345.001324e 134234.999e- 0x---1234ab23"
+----------------------------------------------------
+floating point: "4234523452345.001324"
+word: "e"
+floating point: "134234.999"
+word: "e"
+minus/subtract operator: "-"
+octal integer: "0"
+word: "x"
+decrement: "--"
+minus/subtract operator: "-"
+decimal integer: "1234"
+word: "ab23"
+
+9.
+INPUT: "99999999.2341234e123412341234 01234 0x0x0xAAAAB1F"
+----------------------------------------------------
+floating point: "99999999.2341234e123412341234"
+octal integer: "01234"
+hexadecimal integer: "0x0"
+word: "x0xAAAAB1F"
+
+10.
+INPUT: "H4nd 1n h4nd, sh1p 4nd breeze blew 0n"
+----------------------------------------------------
+word: "H4nd"
+decimal integer: "1"
+word: "n"
+word: "h4nd"
+comma: ","
+word: "sh1p"
+decimal integer: "4"
+word: "nd"
+word: "breeze"
+word: "blew"
+octal integer: "0"
+word: "n"
+
+11.
+INPUT: "][][][]^&*()()))===--++++>><"
+----------------------------------------------------
+right bracket: "]"
+left bracket: "["
+right bracket: "]"
+left bracket: "["
+right bracket: "]"
+left bracket: "["
+right bracket: "]"
+bitwise XOR: "^"
+AND/address operator: "&"
+multiply/dereference operator: "*"
+left parenthesis: "("
+right parenthesis: ")"
+left parenthesis: "("
+right parenthesis: ")"
+right parenthesis: ")"
+right parenthesis: ")"
+equality test: "=="
+assignment: "="
+decrement: "--"
+increment: "++"
+increment: "++"
+shift right: ">>"
+less than test: "<"
+
+12.
+INPUT: "++++&&&&7+=*=^==---++[][],.,.//=&=*=909%=+===><><>>><<++-"
+
+NOTE: "//" marks the beginning of a single-line comment
+----------------------------------------------------
+increment: "++"
+increment: "++"
+logical AND: "&&"
+logical AND: "&&"
+decimal integer: "7"
+plus equals: "+="
+times equals: "*="
+bitwise XOR equals: "^="
+assignment: "="
+decrement: "--"
+minus/subtract operator: "-"
+increment: "++"
+left bracket: "["
+right bracket: "]"
+left bracket: "["
+right bracket: "]"
+comma: ","
+structure member: "."
+comma: ","
+structure member: "."
+
+13.
+INPUT: "/=&=*=909%=+===><><>>><<++-"
+----------------------------------------------------
+divide equals: "/="
+bitwise AND equals: "&="
+times equals: "*="
+decimal integer: "909"
+mod equals: "%="
+plus equals: "+="
+equality test: "=="
+greater than test: ">"
+less than test: "<"
+greater than test: ">"
+less than test: "<"
+shift right: ">>"
+greater than test: ">"
+shift left: "<<"
+increment: "++"
+minus/subtract operator: "-"
+
+14.
+INPUT: "<<====>+<+>+<+>+<+>+>>===<<==<<=<<=<<>>>>=>>+"
+----------------------------------------------------
+shift left equals: "<<="
+equality test: "=="
+assignment: "="
+greater than test: ">"
+addition: "+"
+less than test: "<"
+addition: "+"
+greater than test: ">"
+addition: "+"
+less than test: "<"
+addition: "+"
+greater than test: ">"
+addition: "+"
+less than test: "<"
+addition: "+"
+greater than test: ">"
+addition: "+"
+shift right equals: ">>="
+equality test: "=="
+shift left equals: "<<="
+assignment: "="
+shift left equals: "<<="
+shift left equals: "<<="
+shift left: "<<"
+shift right: ">>"
+shift right equals: ">>="
+shift right: ">>"
+addition: "+"
+
+15.
+INPUT: "in 3452345 -=-=\t\v a hole 1n the ground<<><>//comented\n?:? th3r3 liv3d *&^^!!== a h0bb!t ///\n//\t\v\n][)) /* n0t a nasty dirty wet hole */, fill3d with the 3nds 000fff w0xrms >>>>!!! 4nd an 0007 000zy smell"
+
+NOTE: If inputted through bash, change these double quotes to single quotes and prepend a dollar sign (e.g. ./tokenizer $'inputString'). This ensures that C escape characters will be parsed properly.
+----------------------------------------------------
+word: "in"
+decimal integer: "3452345"
+minus equals: "-="
+minus equals: "-="
+word: "a"
+word: "hole"
+decimal integer: "1"
+word: "n"
+word: "the"
+word: "ground"
+shift left: "<<"
+greater than test: ">"
+less than test: "<"
+greater than test: ">"
+conditional true: "?"
+conditional false: ":"
+conditional true: "?"
+word: "th3r3"
+word: "liv3d"
+multiply/dereference operator: "*"
+AND/address operator: "&"
+bitwise XOR: "^"
+bitwise XOR: "^"
+negate: "!"
+inequality test: "!="
+assignment: "="
+word: "a"
+word: "h0bb"
+negate: "!"
+word: "t"
+right bracket: "]"
+left bracket: "["
+right parenthesis: ")"
+right parenthesis: ")"
+comma: ","
+word: "fill3d"
+word: "with"
+word: "the"
+decimal integer: "3"
+word: "nds"
+octal integer: "000"
+word: "fff"
+word: "w0xrms"
+shift right: ">>"
+shift right: ">>"
+negate: "!"
+negate: "!"
+negate: "!"
+decimal integer: "4"
+word: "nd"
+word: "an"
+octal integer: "0007"
+octal integer: "000"
+word: "zy"
+word: "smell"
+
+16.
+INPUT: "Here is a sentence with some C keywords: while, for, sizeof, volatile, double.\n On the other hand, these are not C keywords: whilea forgotten, supersizeof"
+
+NOTE: If inputted through bash, change these double quotes to single quotes and prepend a dollar sign (e.g. ./tokenizer $'inputString'). This ensures that C escape characters will be parsed properly.
+----------------------------------------------------
+word: "Here"
+word: "is"
+word: "a"
+word: "sentence"
+word: "with"
+word: "some"
+word: "C"
+word: "keywords"
+conditional false: ":"
+while: "while"
+comma: ","
+for: "for"
+comma: ","
+sizeof: "sizeof"
+comma: ","
+volatile: "volatile"
+comma: ","
+double: "double"
+structure member: "."
+word: "On"
+word: "the"
+word: "other"
+word: "hand"
+comma: ","
+word: "these"
+word: "are"
+word: "not"
+word: "C"
+word: "keywords"
+conditional false: ":"
+word: "whilea"
+word: "forgotten"
+comma: ","
+word: "supersizeof"
+
+17.
+INPUT: "007const //this will not appear in the output\n, but this\twill. n0w, h3r3 0.0000007e-10 is an example of a multi----line c0mmmmment ---->->-> /* this wont show up*/ However, a mult111----line C 00000 mment with0out closing */ is not a comment :::: /* hello there /*"
+
+NOTE: If inputted through bash, change these double quotes to single quotes and prepend a dollar sign (e.g. ./tokenizer $'inputString'). This ensures that C escape characters will be parsed properly.
+----------------------------------------------------
+octal integer: "007"
+const: "const"
+comma: ","
+word: "but"
+word: "this"
+word: "will"
+structure member: "."
+word: "n0w"
+comma: ","
+word: "h3r3"
+floating point: "0.0000007e-10"
+word: "is"
+word: "an"
+word: "example"
+word: "of"
+word: "a"
+word: "multi"
+decrement: "--"
+decrement: "--"
+word: "line"
+word: "c0mmmmment"
+decrement: "--"
+decrement: "--"
+greater than test: ">"
+structure pointer: "->"
+structure pointer: "->"
+word: "However"
+comma: ","
+word: "a"
+word: "mult111"
+decrement: "--"
+decrement: "--"
+word: "line"
+word: "C"
+octal integer: "00000"
+word: "mment"
+word: "with0out"
+word: "closing"
+multiply/dereference operator: "*"
+division: "/"
+word: "is"
+word: "not"
+word: "a"
+word: "comment"
+conditional false: ":"
+conditional false: ":"
+conditional false: ":"
+conditional false: ":"
+division: "/"
+multiply/dereference operator: "*"
+word: "hello"
+word: "there"
+negate: "!"
+division: "/"
+multiply/dereference operator: "*"
+
+18.
+INPUT: ""
+----------------------------------------------------
+
+19.
+INPUT: "\'this should be a single quote string\'"
+
+NOTE: If inputted through bash, change these double quotes to single quotes and prepend a dollar sign (e.g. ./tokenizer $'inputString'). This ensures that C escape characters will be parsed properly.
+----------------------------------------------------
+quote string: 'this should be a single quote string'
+
+20.
+INPUT: "strings are \"grouped with single and \" \'double quotes\' in \'this example\'"
+
+NOTE: If inputted through bash, change these double quotes to single quotes and prepend a dollar sign (e.g. ./tokenizer $'inputString'). This ensures that C escape characters will be parsed properly.
+----------------------------------------------------
+word: "strings"
+word: "are"
+quote string: "grouped with single and "
+quote string: 'double quotes'
+word: "in"
+quote string: 'this example'
+
+21.
+INPUT: "Here are \"some numbers: 0134 4.333333 8888888888888 0 00\". Here they \'are separately\': 0134 4.333333 8888888888888 0 00"
+
+NOTE: If inputted through bash, change these double quotes to single quotes and prepend a dollar sign (e.g. ./tokenizer $'inputString'). This ensures that C escape characters will be parsed properly.
+----------------------------------------------------
+word: "Here"
+word: "are"
+quote string: "some numbers: 0134 4.333333 8888888888888 0 00"
+structure member: "."
+word: "Here"
+word: "they"
+quote string: 'are separately'
+conditional false: ":"
+octal integer: "0134"
+floating point: "4.333333"
+decimal integer: "8888888888888"
+octal integer: "0"
+octal integer: "00"
+
+22.
+INPUT: "\"Konami Code:\" upupdowndown<--><-->BA"
+
+NOTE: If inputted through bash, change these double quotes to single quotes and prepend a dollar sign (e.g. ./tokenizer $'inputString'). This ensures that C escape characters will be parsed properly.
+----------------------------------------------------
+quote string: "Konami Code:"
+word: "upupdowndown"
+less than test: "<"
+decrement: "--"
+greater than test: ">"
+less than test: "<"
+decrement: "--"
+greater than test: ">"
+word: "BA"
+
+23.
+INPUT: "\'\'\"\"\"\"\'\'"
+
+NOTE: If inputted through bash, change these double quotes to single quotes and prepend a dollar sign (e.g. ./tokenizer $'inputString'). This ensures that C escape characters will be parsed properly.
+----------------------------------------------------
+quote string: ''
+quote string: ""
+quote string: ""
+quote string: ''
+
+24.
+INPUT: "Here are some whitespace characters:\t\v\r\n\f\f\f. All of them have been ignored."
+
+NOTE: If inputted through bash, change these double quotes to single quotes and prepend a dollar sign (e.g. ./tokenizer $'inputString'). This ensures that C escape characters will be parsed properly.
+----------------------------------------------------
+word: "Here"
+word: "are"
+word: "some"
+word: "whitespace"
+word: "characters"
+conditional false: ":"
+structure member: "."
+word: "All"
+word: "of"
+word: "them"
+word: "have"
+word: "been"
+word: "ignored"
+structure member: "."
+
+25.
+INPUT: "\'Some famous facts in science\': e=mc^2 /*Einstein*/, F=Gm1m2/r^2 /*Newton*/, speed of light = 299,792,458 m/s /*Egyptians????*/"
+
+NOTE: If inputted through bash, change these double quotes to single quotes and prepend a dollar sign (e.g. ./tokenizer $'inputString'). This ensures that C escape characters will be parsed properly.
+----------------------------------------------------
+quote string: 'Some famous facts in science'
+conditional false: ":"
+word: "e"
+assignment: "="
+word: "mc"
+bitwise XOR: "^"
+decimal integer: "2"
+comma: ","
+word: "F"
+assignment: "="
+word: "Gm1m2"
+division: "/"
+word: "r"
+bitwise XOR: "^"
+decimal integer: "2"
+comma: ","
+word: "speed"
+word: "of"
+word: "light"
+assignment: "="
+decimal integer: "299"
+comma: ","
+decimal integer: "792"
+comma: ","
+decimal integer: "458"
+word: "m"
+division: "/"
+word: "s"
+
+26.
+INPUT: "//It was about eleven o clock in the morning, mid October, with the sun not shining and a look of hard wet rain in the clearness of the foothills."
+----------------------------------------------------
+
+27.
+INPUT: "/* Chapter One */ /* Between Timid and Timbuktu */ \"Everyone now knows how to find the meaning of life within himself.\" \'But mankind wasnt always so lucky. Less than a century ago men and women did not have easy access to the puzzle boxes within them. \'" 
+
+NOTE: If inputted through bash, change these double quotes to single quotes and prepend a dollar sign (e.g. ./tokenizer $'inputString'). This ensures that C escape characters will be parsed properly.
+----------------------------------------------------
+quote string: "Everyone now knows how to find the meaning of life within himself."
+quote string: 'But mankind wasnt always so lucky. Less than a century ago men and women did not have easy access to the puzzle boxes within them. '
+
+
